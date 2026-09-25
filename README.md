@@ -5,8 +5,15 @@ trade-area radii, vehicle registration volume, Nielsen WUPA (CBS Atlanta)
 viewership tier, and a demographic sample — see `PROJECT_BRIEF.md` for the full
 project spec.
 
-**[Open the map](public/index.html)** (or `npm run serve`, then visit
-`http://localhost:8080`).
+**Live**: https://mayormorris.github.io/AxiomAI/ (deployed automatically from
+`public/` on every push to the default branch — see
+`.github/workflows/deploy-pages.yml`). Or run locally: `npm run serve`, then
+visit `http://localhost:8080`.
+
+> **One-time setup**: GitHub Pages must be switched to the "GitHub Actions"
+> source before the workflow can deploy — repo Settings → Pages → Build and
+> deployment → Source → **GitHub Actions**. After that, every push to the
+> default branch that touches `public/` redeploys automatically.
 
 ## Stack
 
