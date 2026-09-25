@@ -1,3 +1,4 @@
 node_modules/
 data/source/boundaries/*_raw.json
+__pycache__/
 .DS_Store

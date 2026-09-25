@@ -181,13 +181,20 @@ def build_demographics(demo_rows):
     header_line = demo_rows[0][0]  # "ZIP 30291 -- Union City, GA (Fulton County)"
     zip_code = "".join(ch for ch in header_line.split()[1] if ch.isdigit())
     metrics = {}
-    for row in demo_rows[3:]:
-        if row[0] is None:
-            continue
+    for row in demo_rows[4:]:  # row 3 is the "Metric"/"Value" header itself
+        if row[0] is None or row[1] is None:
+            break  # blank spacer row before the trailing footnote
         metrics[row[0]] = row[1]
     out = {zip_code: {"label": header_line, "metrics": metrics}}
+
+    # Full-coverage pull (scripts/pull_census_demographics.py) takes precedence
+    # per-ZIP over this one sample when both exist for the same ZIP.
+    full_path = SRC / "demographics_full.json"
+    if full_path.exists():
+        out.update(json.loads(full_path.read_text()))
+
     (OUT / "demographics.json").write_text(json.dumps(out, indent=2))
-    return zip_code
+    return zip_code, len(out)
 
 
 def build_zip_data_full(zip_rows):
@@ -221,8 +228,9 @@ def main():
     if missing:
         print(f"  unmatched counties: {missing}")
 
-    zip_code = build_demographics(sheets["demographics_sample"])
-    print(f"demographics.json: sample ZIP {zip_code}")
+    sample_zip, n_demo = build_demographics(sheets["demographics_sample"])
+    print(f"demographics.json: {n_demo} ZIP(s) (sample ZIP {sample_zip}"
+          + (", plus scripts/pull_census_demographics.py output" if n_demo > 1 else "") + ")")
 
     n_full = build_zip_data_full(sheets["zip_data"])
     print(f"zip_data_full.json: {n_full} rows")
