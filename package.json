@@ -1,0 +1,13 @@
+{
+  "name": "atlanta-chevy-gis-map",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive GIS map for the Chevrolet Dealers Association of Greater Atlanta",
+  "scripts": {
+    "build-data": "python3 scripts/build_data.py",
+    "serve": "python3 -m http.server 8080 --directory public"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  }
+}

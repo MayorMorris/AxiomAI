@@ -1,0 +1,26 @@
+{
+  "30291": {
+    "label": "ZIP 30291 \u2014 Union City, GA (Fulton County)",
+    "metrics": {
+      "Metric": "Value",
+      "Population": 25339,
+      "Median Age \u2014 Overall": 34,
+      "Median Age \u2014 Male": 31,
+      "Median Age \u2014 Female": 36,
+      "Median Household Income (aHHI)": "$46,208",
+      "Median Home Value (aHOV)": "$190,100",
+      "Average Household Size": 2.4,
+      "Households With Kids": "36%",
+      "Households Without Kids": "64%",
+      "Family Structure \u2014 Husband/Wife": "22%",
+      "Family Structure \u2014 Single Guardian": "37%",
+      "Family Structure \u2014 Singles": "34%",
+      "Family Structure \u2014 With Roommate": "6%",
+      "Age Mix \u2014 Under 20": "29%",
+      "Age Mix \u2014 20 to 34": "23%",
+      "Age Mix \u2014 35 to 54": "24%",
+      "Age Mix \u2014 55+": "24%",
+      "This is one worked example, not full coverage. To extend to all 19 dealer ZIPs or all 334 buyer ZIPs: sign up for a free Census API key (https://api.census.gov/data/key_signup.html) and pull ACS tables B01002 (age), B19013 (income), B25077 (home value), B11001/B09019 (household structure) per ZCTA \u2014 Claude can write and run this pull once a key is available.": null
+    }
+  }
+}
