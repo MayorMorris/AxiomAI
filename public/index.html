@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chevrolet Dealers Association of Greater Atlanta — Market Planning Map</title>
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="app-header">
+    <h1>Chevrolet Dealers Association of Greater Atlanta</h1>
+    <p>Trade-area, registration &amp; viewership market-planning map</p>
+  </header>
+
+  <div id="app">
+    <aside id="sidebar">
+      <section class="panel">
+        <h2>Layers</h2>
+        <label class="toggle">
+          <input type="checkbox" id="toggle-dealers" checked>
+          Dealers &amp; 8-mi radius
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="toggle-demographics">
+          Demographics sample (ZIP 30291)
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>Choropleth</h2>
+        <label class="field">
+          Geography
+          <select id="select-geo">
+            <option value="none">None</option>
+            <option value="county">County</option>
+            <option value="zip" selected>ZIP (ZCTA)</option>
+          </select>
+        </label>
+        <label class="field">
+          Metric
+          <select id="select-metric"></select>
+        </label>
+        <div id="legend"></div>
+      </section>
+
+      <section class="panel" id="detail-panel">
+        <h2>Details</h2>
+        <p class="muted">Click a dealer, ZIP, or county on the map for details.</p>
+      </section>
+
+      <section class="panel" id="gaps-panel">
+        <h2>Known data gaps</h2>
+        <ul>
+          <li>Full ZIP-level demographics need a Census API key — only ZIP 30291 is populated today. See <code>README.md</code>.</li>
+          <li>28 of 334 buyer ZIPs have no ZCTA boundary match (non-residential / PO-box ZIPs) and are omitted from the ZIP choropleth, though present in the data table.</li>
+          <li>Dealer coordinates are Google-geocoded, not survey-grade.</li>
+        </ul>
+      </section>
+    </aside>
+
+    <main id="map"></main>
+  </div>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="colors.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
